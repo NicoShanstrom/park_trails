@@ -5,9 +5,9 @@ RSpec.describe 'asheville_parks index' do
         it 'shows the name of each asheville park in the system' do
             # User Story 1, Parent Index 
             # For each parent table
-            Malvern = AshevillePark.create!(name: "Malvern Hills", fee: 0, pets_allowed: true)
-            Arboretum = AshevillePark.create!(name: "North Carolina Arboretum", fee: 15, pets_allowed: true)
-            Biltmore = AshevillePark.create!(name: "Biltmore Estate", fee: 20, pets_allowed: false)
+            malvern = AshevillePark.create!(name: "Malvern Hills", fee: 0, pets_allowed: true)
+            arboretum = AshevillePark.create!(name: "North Carolina Arboretum", fee: 15, pets_allowed: true)
+            biltmore = AshevillePark.create!(name: "Biltmore Estate", fee: 20, pets_allowed: false)
             # As a visitor
             # When I visit '/parents'
             visit '/asheville_parks'
