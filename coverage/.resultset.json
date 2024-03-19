@@ -1,0 +1,39 @@
+{
+  "RSpec": {
+    "coverage": {
+      "/Users/nicoshanstrom/Turing/2mod/relational_rails_project/park_trails/app/models/asheville_park.rb": {
+        "lines": [
+          1,
+          1,
+          null
+        ]
+      },
+      "/Users/nicoshanstrom/Turing/2mod/relational_rails_project/park_trails/app/models/application_record.rb": {
+        "lines": [
+          1,
+          1,
+          null
+        ]
+      },
+      "/Users/nicoshanstrom/Turing/2mod/relational_rails_project/park_trails/spec/models/trail_spec.rb": {
+        "lines": [
+          1,
+          null,
+          1,
+          1,
+          2,
+          null,
+          null
+        ]
+      },
+      "/Users/nicoshanstrom/Turing/2mod/relational_rails_project/park_trails/app/models/trail.rb": {
+        "lines": [
+          1,
+          1,
+          null
+        ]
+      }
+    },
+    "timestamp": 1710859810
+  }
+}
