@@ -12,6 +12,8 @@ RSpec.describe 'asheville_parks #show' do
             visit "/asheville_parks/#{malvern.id}"
             # Then I see the parent with that id including the parent's attributes
             # (data from each column that is on the parent table)
+            expect(page).to have_content("Fee:")
+            expect(page).to have_content("Pets allowed?:")
             expect(page).to have_content(malvern.name)
             expect(page).to have_content(malvern.fee)
             expect(page).to have_content(malvern.pets_allowed)
