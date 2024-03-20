@@ -9,4 +9,6 @@ Rails.application.routes.draw do
   # root "posts#index"
   get "/asheville_parks", to: "asheville_parks#index"
   get "/asheville_parks/:id", to:"asheville_parks#show"
+  get "/trails", to: "trails#index"
+  get "/asheville_parks/:id/trails", to:"asheville_parks_trails#index"
 end

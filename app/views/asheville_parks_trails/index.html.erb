@@ -1,0 +1,11 @@
+<h1><%="#{@park.name}"%> Trails!</h1>
+
+<ol>
+    <% @trails.each do |trail| %>
+        <li>
+            <h2>Trail name: <%= trail.name %></h2>
+            <h3>Paved?: <%= trail.paved %></h3>
+            <h3>Total length in miles: <%= trail.total_length %></h3>
+        </li>
+    <%end%>
+</ol>
