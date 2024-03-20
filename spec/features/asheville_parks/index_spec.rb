@@ -36,6 +36,7 @@ RSpec.describe 'asheville_parks index' do
       expect(page).to have_content(malvern.created_at)
       expect(page).to have_content(arboretum.created_at)
       expect(page).to have_content(biltmore.created_at)
+      save_and_open_page
     end
   end
 end
