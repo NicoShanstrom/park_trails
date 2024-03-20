@@ -1,6 +1,6 @@
 class AshevilleParksController < ApplicationController
     def index
-        @asheville_parks = AshevillePark.all
+        @asheville_parks = AshevillePark.ordered_parks
     end
 
     def show

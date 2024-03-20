@@ -1,5 +1,11 @@
 <h1>Asheville Parks!</h1>
-
-<% @asheville_parks.each do |asheville_park| %>
-    <h3><%= asheville_park.name %></h3>
-<%end%>
+    <ol>
+        <li>
+            <div id="all_parks">
+                <% @asheville_parks.each do |asheville_park| %>
+                    <h3>Park name: <%= asheville_park.name %></h3>
+                    <h3>Time created: <%= asheville_park.created_at %></h3>
+                <%end%>
+            </div>
+        </li>
+    </ol>

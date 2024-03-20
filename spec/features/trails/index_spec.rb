@@ -20,10 +20,12 @@ RSpec.describe 'trails index' do
             # Then I see each Child in the system including the Child's attributes
             # (data from each column that is on the child table)
             [malv_1, malv_2, arbor_1, arbor_2, bilt_1, bilt_2].each do |trail|
-                expect(page).to have_content(trail.name)
-                expect(page).to have_content(trail.paved)
-                expect(page).to have_content(trail.total_length)
-                expect(page).to have_content(trail.asheville_park.name)
+                within("#trail-#{trail.id}") do
+                    expect(page).to have_content(trail.name)
+                    expect(page).to have_content(trail.paved)
+                    expect(page).to have_content(trail.total_length)
+                    expect(page).to have_content(trail.asheville_park.name)
+                end
             end
         end
     end
