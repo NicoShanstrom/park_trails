@@ -2,10 +2,10 @@ require 'rails_helper'
 
 RSpec.describe AshevillePark, type: :model do
   describe "relationships" do
-    it { should have_many(:trails) }
+    it { should have_many :trails }
   end
 
-  describe "#self.ordered_parks" do
+  describe "#ordered_parks" do
     it 'orders parks by most recently created first' do
       malvern = AshevillePark.create!(name: "Malvern Hills", fee: 0, pets_allowed: true)
       arboretum = AshevillePark.create!(name: "North Carolina Arboretum", fee: 15, pets_allowed: true)
