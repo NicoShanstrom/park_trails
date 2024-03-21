@@ -12,11 +12,9 @@ RSpec.describe 'asheville_parks index' do
             # When I visit '/parents'
             visit '/asheville_parks'
             # Then I see the name of each parent record in the system
-            within "#all_parks" do
-                expect(page).to have_content("Park name: Malvern Hills")
-                expect(page).to have_content("Park name: Biltmore Estate")
-                expect(page).to have_content("Park name: North Carolina Arboretum")
-            end 
+            expect(page).to have_content("Park name: Malvern Hills")
+            expect(page).to have_content("Park name: Biltmore Estate")
+            expect(page).to have_content("Park name: North Carolina Arboretum")
         end
     end
 
@@ -36,7 +34,6 @@ RSpec.describe 'asheville_parks index' do
       expect(page).to have_content(malvern.created_at)
       expect(page).to have_content(arboretum.created_at)
       expect(page).to have_content(biltmore.created_at)
-      save_and_open_page
     end
   end
 end

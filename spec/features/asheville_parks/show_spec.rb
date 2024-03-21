@@ -20,4 +20,19 @@ RSpec.describe 'asheville_parks #show' do
             expect(page).to_not have_content(arboretum.name)
         end
     end
+
+    describe 'User story 7' do
+        it 'shows a count of trails associated with this specific park' do
+            biltmore = AshevillePark.create!(name: "Biltmore Estate", fee: 20, pets_allowed: false)
+
+            bilt_1 = biltmore.trails.create!(name:"Biltmore Estate Path Loop", paved: false, total_length: 3)
+            bilt_2 = biltmore.trails.create!(name:"Gardens and Conservatory", paved: true, total_length: 3)
+            # As a visitor
+            # When I visit a parent's show page
+            visit "asheville_parks/#{biltmore.id}"
+            # I see a count of the number of children associated with this parent
+            expect(page).to have_content("Number of Trails: #{biltmore.trail_count}")
+            
+        end
+    end
 end

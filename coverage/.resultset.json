@@ -7,6 +7,10 @@
           1,
           null,
           1,
+          0,
+          null,
+          null,
+          1,
           3,
           null,
           null
@@ -23,11 +27,11 @@
         "lines": [
           1,
           1,
-          2,
+          0,
           null,
           null,
           1,
-          0,
+          2,
           null,
           null
         ]
@@ -37,8 +41,15 @@
           1,
           null
         ]
+      },
+      "/Users/nicoshanstrom/Turing/2mod/relational_rails_project/park_trails/app/models/trail.rb": {
+        "lines": [
+          1,
+          1,
+          null
+        ]
       }
     },
-    "timestamp": 1710966697
+    "timestamp": 1711030148
   }
 }

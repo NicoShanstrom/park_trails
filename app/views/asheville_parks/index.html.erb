@@ -2,10 +2,8 @@
 <ol>
     <% @asheville_parks.each do |asheville_park| %>
         <li>
-            <div id="all_parks">
-                    <h3>Park name: <%= asheville_park.name %></h3>
-                    <h3>Time created: <%= asheville_park.created_at %></h3>
-            </div>
+            <h3>Park name: <%= asheville_park.name %></h3>
+            <h3>Time created: <%= asheville_park.created_at %></h3>
         </li>
     <%end%>
 </ol>
