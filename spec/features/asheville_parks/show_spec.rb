@@ -32,7 +32,21 @@ RSpec.describe 'asheville_parks #show' do
             visit "asheville_parks/#{biltmore.id}"
             # I see a count of the number of children associated with this parent
             expect(page).to have_content("Number of Trails: #{biltmore.trail_count}")
-            
+        end
+    end
+
+    describe 'User story 10' do
+        it 'renders a link on the asheville park show page to take a user to the trails of the park' do
+            biltmore = AshevillePark.create!(name: "Biltmore Estate", fee: 20, pets_allowed: false)
+
+            bilt_1 = biltmore.trails.create!(name:"Biltmore Estate Path Loop", paved: false, total_length: 3)
+            bilt_2 = biltmore.trails.create!(name:"Gardens and Conservatory", paved: true, total_length: 3)
+            # User Story 10, Parent Child Index Link
+            # As a visitor
+            # When I visit a parent show page ('/parents/:id')
+            visit "/asheville_parks/#{biltmore.id}"
+            # Then I see a link to take me to that parent's `child_table_name` page ('/parents/:id/child_table_name')
+            expect(page).to have_link("Show me #{biltmore.name} Trails!")
         end
     end
 end

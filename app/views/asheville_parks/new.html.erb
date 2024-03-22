@@ -1,0 +1,10 @@
+<h1>Add a park to Asheville Parks!</h1>
+<%= form_with model: @asheville_park, local: true do |form| %>
+  <%= form.label :name %>
+  <%= form.text_field :name %>
+  <%= form.label :fee %>
+  <%= form.text_field :fee %>
+  <%= form.label :pets_allowed %>
+  <%= form.check_box :pets_allowed %>
+  <%= form.submit 'Create Asheville Park!' %>
+<% end %>

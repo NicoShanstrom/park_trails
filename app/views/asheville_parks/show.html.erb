@@ -2,3 +2,4 @@
     <p><h3>Fee: <%= @asheville_park.fee %></p></h3>
     <p><h3>Pets allowed?: <%= @asheville_park.pets_allowed %></p></h3>
     <p><h3>Number of Trails: <%= @asheville_park.trail_count %></p></h3>
+    <p><h3><%= link_to "Show me #{@asheville_park.name} Trails!", "/asheville_parks/#{@asheville_park.id}/trails" %></p></h3>

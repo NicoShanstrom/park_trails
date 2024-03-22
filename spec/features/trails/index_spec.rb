@@ -29,4 +29,18 @@ RSpec.describe 'trails index' do
             end
         end
     end
+
+    describe 'user story 8' do
+       it 'shows a link to trails index on the top of any page' do
+        # User Story 8, Child Index Link
+        # As a visitor
+        # When I visit any page on the site
+        visit '/asheville_parks'
+        # Then I see a link at the top of the page that takes me to the Child Index
+        expect(page).to have_link('Show me all the trails!')
+
+        visit '/trails'
+        expect(page).to have_link('Show me all the trails!')
+       end
+    end
 end

@@ -8,7 +8,9 @@ Rails.application.routes.draw do
   # Defines the root path route ("/")
   # root "posts#index"
   get "/asheville_parks", to: "asheville_parks#index"
-  get "/asheville_parks/:id", to:"asheville_parks#show"
+  get "/asheville_parks/new", to: "asheville_parks#new"
+  get "/asheville_parks/:id", to: "asheville_parks#show"
   get "/trails", to: "trails#index"
-  get "/asheville_parks/:id/trails", to:"asheville_parks_trails#index"
+  get "/asheville_parks/:id/trails", to: "asheville_parks_trails#index"
+  post "/asheville_parks", to: "asheville_parks#create"
 end
