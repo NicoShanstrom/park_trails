@@ -49,4 +49,33 @@ RSpec.describe 'asheville_parks #show' do
             expect(page).to have_link("Show me #{biltmore.name} Trails!")
         end
     end
+
+    describe 'User story 12' do
+        it 'creates a link to edit an Asheville Park attributes' do
+            arboretum = AshevillePark.create!(name: "North Carolina Arboretum", fee: 15, pets_allowed: true)
+            # User Story 12, Parent Update 
+            # As a visitor
+            # When I visit a parent show page
+            visit "/asheville_parks/#{arboretum.id}"
+            # Then I see a link to update the parent "Update Parent"
+            expect(page).to have_link("Edit #{arboretum.name}!")
+            # When I click the link "Update Parent"
+            click_link("Edit #{arboretum.name}!")
+            # Then I am taken to '/parents/:id/edit' where I  see a form to edit the parent's attributes:
+            expect(current_path).to eq("/asheville_parks/#{arboretum.id}/edit")
+            expect(page).to have_selector('form')
+            # When I fill out the form with updated information
+            fill_in 'Name', with: 'North Carolina Arboretum'
+            fill_in 'Fee', with: 0
+            uncheck 'asheville_park[pets_allowed]'
+            # And I click the button to submit the form
+            click_on "Update #{arboretum.name}"
+            # Then a `PATCH` request is sent to '/parents/:id',
+            # the parent's info is updated,
+            # and I am redirected to the Parent's Show page where I see the parent's updated info
+            expect(current_path).to eq("/asheville_parks/#{arboretum.id}")
+            save_and_open_page
+            expect(page).to have_content('Pets allowed?: false')
+        end
+    end
 end
