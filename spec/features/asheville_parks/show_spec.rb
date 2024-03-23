@@ -74,7 +74,6 @@ RSpec.describe 'asheville_parks #show' do
             # the parent's info is updated,
             # and I am redirected to the Parent's Show page where I see the parent's updated info
             expect(current_path).to eq("/asheville_parks/#{arboretum.id}")
-            save_and_open_page
             expect(page).to have_content('Pets allowed?: false')
         end
     end
