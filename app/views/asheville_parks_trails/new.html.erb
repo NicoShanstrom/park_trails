@@ -1,5 +1,5 @@
 <h1><%= "Add a trail to #{@asheville_park.name}!" %></h1>
-<%= form_with model: [@asheville_park, @trail], url: "/asheville_parks/#{@asheville_park.id}/trails" do |form| %>
+<%= form_with url: "/asheville_parks/#{@asheville_park.id}/trails" do |form| %>
   <%= form.label :name %>
   <%= form.text_field :name %>
   <%= form.label :paved %>

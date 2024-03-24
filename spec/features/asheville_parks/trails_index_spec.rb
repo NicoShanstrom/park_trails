@@ -41,8 +41,9 @@ RSpec.describe 'Asheville Parks trails index' do
             expect(page).to have_selector('form')
             # When I fill in the form with the child's attributes:
             fill_in 'Name', with: 'Carolina Mountain'
-            find('input[name="trail[paved]"]').uncheck
-            # uncheck 'trail[paved]'
+            # find('input[name="trail[paved]"]').uncheck
+            # save_and_open_page
+            uncheck 'paved'
             fill_in 'Total length in miles', with: 2
             # And I click the button "Create Child"
             click_on "Create new trail in #{arboretum.name}!"
