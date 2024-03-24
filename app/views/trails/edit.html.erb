@@ -1,0 +1,10 @@
+<h1>Update Trail Information!</h1>
+<%= form_with url: "/trails/#{@trail.id}" do |form| %>
+  <%= form.label :name %>
+  <%= form.text_field :name %>
+  <%= form.label :paved %>
+  <%= form.check_box :paved %>
+  <%= form.label :total_length, "Total length in miles:" %>
+  <%= form.text_field :total_length %>
+  <%= form.submit "Update trail" %>
+<% end %>

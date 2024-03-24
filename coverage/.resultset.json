@@ -30,33 +30,34 @@
           null
         ]
       },
-      "/Users/nicoshanstrom/Turing/2mod/relational_rails_project/park_trails/app/controllers/asheville_parks_trails_controller.rb": {
+      "/Users/nicoshanstrom/Turing/2mod/relational_rails_project/park_trails/app/controllers/trails_controller.rb": {
         "lines": [
           1,
           1,
-          2,
-          2,
-          null,
-          null,
-          1,
-          1,
-          1,
-          null,
-          null,
-          1,
-          1,
-          1,
-          0,
-          0,
-          null,
           0,
           null,
           null,
+          1,
+          1,
+          null,
+          null,
+          1,
+          1,
+          null,
+          null,
+          1,
+          0,
+          0,
+          0,
+          null,
+          0,
+          null,
+          null,
           null,
           1,
           null,
           1,
-          1,
+          0,
           null,
           null
         ]
@@ -68,6 +69,6 @@
         ]
       }
     },
-    "timestamp": 1711298789
+    "timestamp": 1711302385
   }
 }

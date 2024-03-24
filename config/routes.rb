@@ -15,6 +15,10 @@ Rails.application.routes.draw do
   get "/asheville_parks/:id", to: "asheville_parks#show"
 
   get "/trails", to: "trails#index"
+  get "/trails/:id/edit", to: "trails#edit"
+  patch "/trails/:id", to: "trails#update"
+  get "/trails/:id", to: "trails#show"
+
 
   get "/asheville_parks/:id/trails/new", to: "asheville_parks_trails#new"
   post "/asheville_parks/:id/trails", to: "asheville_parks_trails#create"
