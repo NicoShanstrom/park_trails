@@ -1,6 +1,10 @@
 class TrailsController < ApplicationController
     def index
-        @trails = Trail.all
+        if params[:paved] == 'true'
+            @trails = Trail.paved_trails
+        else
+            @trails = Trail.all
+        end
     end
 
     def show
