@@ -69,7 +69,7 @@ RSpec.describe 'asheville_parks index' do
       # When I fill out the form with a new parent's attributes:
       fill_in 'Name', with: 'Richmond Hill Park'
       fill_in 'Fee', with: 0
-      check 'asheville_park[pets_allowed]'
+      check 'Pets allowed'
       # And I click the button "Create Parent" to submit the form
       click_on 'Create Asheville Park!'
       # Then a `POST` request is sent to the '/parents' route,
@@ -77,6 +77,24 @@ RSpec.describe 'asheville_parks index' do
       # and I am redirected to the Parent Index page where I see the new Parent displayed.
       expect(current_path).to eq('/asheville_parks')
       expect(page).to have_content('Richmond Hill Park')
+    end
+  end
+
+  describe 'user story 17' do
+    it 'renders a link next to each park to edit its info' do
+      arboretum = AshevillePark.create!(name: "North Carolina Arboretum", fee: 15, pets_allowed: true)
+      # User Story 17, Parent Update From Parent Index Page 
+      # As a visitor
+      # When I visit the parent index page
+      visit '/asheville_parks'
+      # Next to every parent, I see a link to edit that parent's info
+      expect(page).to have_content(arboretum.name)
+      expect(page).to have_content(arboretum.created_at)
+      expect(page).to have_link("Edit #{arboretum.name}")
+      # When I click the link
+      click_link("Edit #{arboretum.name}")
+      # I should be taken to that parent's edit page where I can update its information just like in User Story 12
+      expect(current_path).to eq("/asheville_parks/#{arboretum.id}/edit")
     end
   end
 end

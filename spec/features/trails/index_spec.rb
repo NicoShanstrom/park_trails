@@ -73,4 +73,56 @@ RSpec.describe 'trails index' do
             expect(page).to_not have_content(arbor_2.name)
         end
     end
+
+    describe 'user story 18' do
+        it 'renders a link next to each trail to edit its info' do
+            biltmore = AshevillePark.create!(name: "Biltmore Estate", fee: 20, pets_allowed: false)
+
+            bilt_1 = biltmore.trails.create!(name:"Biltmore Estate Path Loop", paved: false, total_length: 3)
+            bilt_2 = biltmore.trails.create!(name:"Gardens and Conservatory", paved: true, total_length: 3)
+            # User Story 18, Child Update From Childs Index Page 
+            # As a visitor
+            # When I visit the `child_table_name` index page or a parent `child_table_name` index page
+            visit '/trails'
+            # Next to every child, I see a link to edit that child's info
+            expect(page).to have_content(bilt_1.name)
+            expect(page).to have_content(bilt_1.name)
+            expect(page).to have_content(bilt_1.total_length)
+            expect(page).to have_content(bilt_2.name)
+            expect(page).to have_content(bilt_2.name)
+            expect(page).to have_content(bilt_2.total_length)
+
+            expect(page).to have_link("Edit #{bilt_1.name}")
+            expect(page).to have_link("Edit #{bilt_2.name}")
+            # When I click the link
+            click_link("Edit #{bilt_1.name}")
+            # I should be taken to that `child_table_name` edit page where I can update its information just like in User Story 14
+            expect(current_path).to eq("/trails/#{bilt_1.id}/edit")
+        end
+
+        it 'User story 18 part 2: renders a link next to each asheville park trail to edit its info' do
+            biltmore = AshevillePark.create!(name: "Biltmore Estate", fee: 20, pets_allowed: false)
+
+            bilt_1 = biltmore.trails.create!(name:"Biltmore Estate Path Loop", paved: false, total_length: 3)
+            bilt_2 = biltmore.trails.create!(name:"Gardens and Conservatory", paved: true, total_length: 3)
+            # User Story 18, Child Update From Childs Index Page 
+            # As a visitor
+            # When I visit the `child_table_name` index page or a parent `child_table_name` index page
+            visit "/asheville_parks/#{biltmore.id}/trails"
+            # Next to every child, I see a link to edit that child's info
+            expect(page).to have_content(bilt_1.name)
+            expect(page).to have_content(bilt_1.name)
+            expect(page).to have_content(bilt_1.total_length)
+            expect(page).to have_content(bilt_2.name)
+            expect(page).to have_content(bilt_2.name)
+            expect(page).to have_content(bilt_2.total_length)
+
+            expect(page).to have_link("Edit #{bilt_1.name}")
+            expect(page).to have_link("Edit #{bilt_2.name}")
+            # When I click the link
+            click_link("Edit #{bilt_1.name}")
+            # I should be taken to that `child_table_name` edit page where I can update its information just like in User Story 14
+            expect(current_path).to eq("/trails/#{bilt_1.id}/edit")
+        end
+    end
 end

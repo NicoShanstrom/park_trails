@@ -1,10 +1,13 @@
 <h1><%="#{@park.name}"%> Trails!</h1>
+    <p><%= link_to "Show all #{@park.name} trails!", "/asheville_parks/#{@park.id}/trails" %></p>
+    <p><%= link_to "Order trails alphabetically!", "/asheville_parks/#{@park.id}/trails?alphabetical=true" %></p>
     <ol>
         <% @trails.each do |trail| %>
             <li>
                 <h2>Trail name: <%= trail.name %></h2>
                 <h3>Paved?: <%= trail.paved %></h3>
                 <h3>Total length in miles: <%= trail.total_length %></h3>
+                <h3><%=link_to "Edit #{trail.name}", "/trails/#{trail.id}/edit"%></h3>
             </li>
         <%end%>
     </ol>

@@ -9,10 +9,10 @@ Rails.application.routes.draw do
   # root "posts#index"
   get "/asheville_parks", to: "asheville_parks#index"
   get "/asheville_parks/new", to: "asheville_parks#new"
+  get "/asheville_parks/:id", to: "asheville_parks#show"
   post "/asheville_parks", to: "asheville_parks#create"
   get "/asheville_parks/:id/edit", to: "asheville_parks#edit"
   patch "/asheville_parks/:id", to: "asheville_parks#update"
-  get "/asheville_parks/:id", to: "asheville_parks#show"
 
   get "/trails", to: "trails#index"
   get "/trails/:id/edit", to: "trails#edit"

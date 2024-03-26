@@ -67,7 +67,7 @@ RSpec.describe 'asheville_parks #show' do
             # When I fill out the form with updated information
             fill_in 'Name', with: 'North Carolina Arboretum'
             fill_in 'Fee', with: 0
-            uncheck 'asheville_park[pets_allowed]'
+            uncheck 'Pets allowed'
             # And I click the button to submit the form
             click_on "Update #{arboretum.name}"
             # Then a `PATCH` request is sent to '/parents/:id',

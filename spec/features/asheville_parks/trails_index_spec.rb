@@ -43,7 +43,7 @@ RSpec.describe 'Asheville Parks trails index' do
             fill_in 'Name', with: 'Carolina Mountain'
             # find('input[name="trail[paved]"]').uncheck
             # save_and_open_page
-            uncheck 'paved'
+            uncheck 'Paved'
             fill_in 'Total length in miles', with: 2
             # And I click the button "Create Child"
             click_on "Create new trail in #{arboretum.name}!"
@@ -53,5 +53,26 @@ RSpec.describe 'Asheville Parks trails index' do
             expect(current_path).to eq("/asheville_parks/#{arboretum.id}/trails")
             expect(page).to have_content('Carolina Mountain')
         end 
+    end
+
+    describe 'User story 16' do
+        it 'contains a link to sort asheville park trails in alphabetical order' do
+            arboretum = AshevillePark.create!(name: "North Carolina Arboretum", fee: 15, pets_allowed: true)
+            
+            arbor_1 = arboretum.trails.create!(name:"Natural Garden Loop", paved: false, total_length: 3)
+            arbor_2 = arboretum.trails.create!(name:"Lake Powhatan via Bent Creek", paved: false, total_length: 6)
+            arbor_3 = arboretum.trails.create!(name:"Owl Ridge Trail", paved: false, total_length: 5)
+            # User Story 16, Sort Parent's Children in Alphabetical Order by name 
+            # As a visitor
+            # When I visit the Parent's children Index Page
+            visit "/asheville_parks/#{arboretum.id}/trails"
+            # Then I see a link to sort children in alphabetical order
+            expect(page).to have_link("Order trails alphabetically!")
+            # When I click on the link
+            click_link("Order trails alphabetically!")
+            # I'm taken back to the Parent's children Index Page where I see all of the parent's children in alphabetical order
+            expect(current_path).to eq("/asheville_parks/#{arboretum.id}/trails")
+            expect(arboretum.trails.alphabetical).to eq([arbor_2, arbor_1, arbor_3])
+        end
     end
 end

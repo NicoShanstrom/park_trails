@@ -1,7 +1,12 @@
 class AshevilleParksTrailsController < ApplicationController
     def index
         @park = AshevillePark.find(params[:id])
-        @trails = @park.trails
+
+        if params[:alphabetical] == 'true'
+            @trails = @park.trails.alphabetical
+        else
+            @trails = @park.trails.all
+        end
     end
 
     def new 

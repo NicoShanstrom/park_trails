@@ -1,10 +1,10 @@
 <h1>Update an Asheville Park!</h1>
-<%= form_with model: @asheville_park, url: "/asheville_parks/#{@asheville_park.id}" do |form| %>
+<%= form_with model: @asheville_park, url: "/asheville_parks/#{@asheville_park.id}", method: :patch do |form| %>
   <%= form.label :name %>
-  <%= form.text_field :name %>
+  <%= form.text_field :name, value: @asheville_park.name %>
   <%= form.label :fee %>
-  <%= form.text_field :fee %>
+  <%= form.text_field :fee, value: @asheville_park.fee %>
   <%= form.label :pets_allowed %>
-  <%= form.check_box :pets_allowed %>
+  <%= form.check_box :pets_allowed, checked: @asheville_park.name %>
   <%= form.submit "Update #{@asheville_park.name}" %>
 <% end %>
