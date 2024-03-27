@@ -6,7 +6,7 @@ class Trail < ApplicationRecord
   end
 
   def self.alphabetical
-    self.all.sort_by(&:name)
+    self.order(:name)
   end
 
   def self.minimum_length(min_length)

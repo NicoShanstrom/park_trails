@@ -5,7 +5,7 @@
             <h3>Park name: <%= asheville_park.name %></h3>
             <h3>Time created: <%= asheville_park.created_at %></h3>
             <h3><%=link_to "Edit #{asheville_park.name}", "/asheville_parks/#{asheville_park.id}/edit"%></h3>
-            <h3><%=link_to "Delete #{asheville_park.name}", "/asheville_parks/#{asheville_park.id}", method: :delete %></h3>
+            <h3><%=link_to "Delete #{asheville_park.name}", "/asheville_parks/#{asheville_park.id}", data: { turbo_method: :delete } %></h3>
         </li>
     <%end%>
 </ol>

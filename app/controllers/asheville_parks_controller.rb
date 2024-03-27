@@ -27,7 +27,7 @@ class AshevilleParksController < ApplicationController
     def update
         @asheville_park = AshevillePark.find(params[:id])
         if @asheville_park.update(asheville_park_params)
-            redirect_to "/asheville_parks/#{@asheville_park.id}", notice: "Asheville Park was successfully updates."
+            redirect_to "/asheville_parks/#{@asheville_park.id}"
         else
             render :edit
         end

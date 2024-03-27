@@ -33,4 +33,16 @@ RSpec.describe Trail, type: :model do
       expect(Trail.alphabetical).to eq([arbor_2, arbor_1, arbor_3])
     end
   end
+
+  describe "#minimum_length" do
+    it 'filters trails over a user inputted total length' do
+      arboretum = AshevillePark.create!(name: "North Carolina Arboretum", fee: 15, pets_allowed: true)
+            
+      arbor_1 = arboretum.trails.create!(name:"Natural Garden Loop", paved: false, total_length: 3)
+      arbor_2 = arboretum.trails.create!(name:"Lake Powhatan via Bent Creek", paved: false, total_length: 6)
+      arbor_3 = arboretum.trails.create!(name:"Owl Ridge Trail", paved: false, total_length: 5)
+
+      expect(Trail.minimum_length(4)).to eq([arbor_2, arbor_3])
+    end
+  end
 end
