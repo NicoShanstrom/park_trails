@@ -63,7 +63,7 @@ RSpec.describe 'asheville_parks index' do
       expect(page).to have_link("Add an Asheville park!")
       # When I click this link
       click_link("Add an Asheville park!")
-      # Then I am taken to '/parents/new' where I  see a form for a new parent record
+      # Then I am taken to '/parents/new' where I see a form for a new parent record
       expect(current_path).to eq('/asheville_parks/new')
       expect(page).to have_selector('form')
       # When I fill out the form with a new parent's attributes:
@@ -95,6 +95,27 @@ RSpec.describe 'asheville_parks index' do
       click_link("Edit #{arboretum.name}")
       # I should be taken to that parent's edit page where I can update its information just like in User Story 12
       expect(current_path).to eq("/asheville_parks/#{arboretum.id}/edit")
+    end
+  end
+
+  describe 'user story 22' do
+    it 'has a link next to each park to delete it' do
+      malvern = AshevillePark.create!(name: "Malvern Hills", fee: 0, pets_allowed: true)
+      arboretum = AshevillePark.create!(name: "North Carolina Arboretum", fee: 15, pets_allowed: true)
+      biltmore = AshevillePark.create!(name: "Biltmore Estate", fee: 20, pets_allowed: false)
+      # User Story 22, Parent Delete From Parent Index Page 
+      # As a visitor
+      # When I visit the parent index page
+      visit "/asheville_parks"
+      # Next to every parent, I see a link to delete that parent
+      AshevillePark.all.each do |park|
+        expect(page).to have_link("Delete #{park.name}")
+      end
+      # When I click the link
+      click_link("Delete #{arboretum.name}")
+      # I am returned to the Parent Index Page where I no longer see that parent
+      expect(current_path).to eq("/asheville_parks")
+      expect(page).not_to have_content(arboretum.name)
     end
   end
 end

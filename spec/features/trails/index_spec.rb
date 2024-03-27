@@ -125,4 +125,29 @@ RSpec.describe 'trails index' do
             expect(current_path).to eq("/trails/#{bilt_1.id}/edit")
         end
     end
+
+    describe 'user story 23' do
+        it 'Deletes a trail from the trail index page or asheville parks trails index page' do
+            biltmore = AshevillePark.create!(name: "Biltmore Estate", fee: 20, pets_allowed: false)
+
+            bilt_1 = biltmore.trails.create!(name:"Biltmore Estate Path Loop", paved: false, total_length: 3)
+            bilt_2 = biltmore.trails.create!(name:"Gardens and Conservatory", paved: true, total_length: 3)
+            # User Story 23, Child Delete From Childs Index Page 
+            # As a visitor
+            # When I visit the `child_table_name` index page or a parent `child_table_name` index page
+            visit '/trails'
+            # Next to every child, I see a link to delete that child
+            Trail.all.each do |trail|
+                expect(page).to have_link("Delete #{trail.name}")
+            end
+            # When I click the link
+            click_link("Delete #{bilt_1.name}")
+            # I should be taken to the `child_table_name` index page where I no longer see that child
+            expect(current_path).to eq("/trails")
+            expect(page).to_not have_content(bilt_1.name)
+
+            visit "/asheville_parks/#{biltmore.id}/trails"
+            expect(page).to_not have_content(bilt_1.name)
+        end
+    end
 end

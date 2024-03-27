@@ -75,4 +75,30 @@ RSpec.describe 'Asheville Parks trails index' do
             expect(arboretum.trails.alphabetical).to eq([arbor_2, arbor_1, arbor_3])
         end
     end
+
+    describe 'user story 21' do
+        xit 'contains a form to filter trails over a user inputted trail total length' do
+            arboretum = AshevillePark.create!(name: "North Carolina Arboretum", fee: 15, pets_allowed: true)
+            
+            arbor_1 = arboretum.trails.create!(name:"Natural Garden Loop", paved: false, total_length: 3)
+            arbor_2 = arboretum.trails.create!(name:"Lake Powhatan via Bent Creek", paved: false, total_length: 6)
+            arbor_3 = arboretum.trails.create!(name:"Owl Ridge Trail", paved: false, total_length: 5)
+            # User Story 21, Display Records Over a Given Threshold 
+            # As a visitor
+            # When I visit the Parent's children Index Page
+            visit "/asheville_parks/#{arboretum.id}/trails"
+            # I see a form that allows me to input a number value
+            expect(page).to have_selector('form')
+            # When I input a number value and click the submit button that reads 'Only return records with more than `number` of `column_name`'
+            within('form') do
+                fill_in 'Filter trails by minimum total length (miles):', with: 4
+            end
+            click_on 'Filter'
+            # Then I am brought back to the current index page with only the records that meet that threshold shown.
+            expect(current_path).to eq("/asheville_parks/#{arboretum.id}/trails")
+            expect(page).to have_content(arbor_2.name)
+            expect(page).to have_content(arbor_3.name)
+            expect(page).not_to have_content(arbor_1.name)
+        end
+    end
 end

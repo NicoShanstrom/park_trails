@@ -5,6 +5,6 @@
   <%= form.label :fee %>
   <%= form.text_field :fee, value: @asheville_park.fee %>
   <%= form.label :pets_allowed %>
-  <%= form.check_box :pets_allowed, checked: @asheville_park.name %>
+  <%= form.check_box :pets_allowed, checked: @asheville_park.pets_allowed %>
   <%= form.submit "Update #{@asheville_park.name}" %>
 <% end %>

@@ -1,6 +1,13 @@
 <h1><%="#{@park.name}"%> Trails!</h1>
     <p><%= link_to "Show all #{@park.name} trails!", "/asheville_parks/#{@park.id}/trails" %></p>
     <p><%= link_to "Order trails alphabetically!", "/asheville_parks/#{@park.id}/trails?alphabetical=true" %></p>
+    
+    <%= form_for :trail, url: "/asheville_parks/#{@park.id}/trails", method: :get do |f| %>
+        <%= f.label :min_length, "Filter trails by minimum total length (miles):" %>
+        <%= f.number_field :min_length %>
+        <%= f.submit "Filter" %>
+    <% end %>
+
     <ol>
         <% @trails.each do |trail| %>
             <li>

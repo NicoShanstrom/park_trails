@@ -33,6 +33,11 @@ class AshevilleParksController < ApplicationController
         end
     end
 
+    def destroy
+        AshevillePark.destroy(params[:id])
+        redirect_to "/asheville_parks"
+    end
+
     private
 
     def asheville_park_params

@@ -4,6 +4,8 @@ class AshevilleParksTrailsController < ApplicationController
 
         if params[:alphabetical] == 'true'
             @trails = @park.trails.alphabetical
+        elsif params[:min_length].present?
+            @trails = @park.trails.minimum_length(params[:min_length])
         else
             @trails = @park.trails.all
         end

@@ -9,6 +9,7 @@
             <h3>Total length in miles: <%= trail.total_length %></h3>
             <h3>In this park: <%= trail.asheville_park.name %></h3>
             <h3><%=link_to "Edit #{trail.name}", "/trails/#{trail.id}/edit"%></h3>
+            <h3><%=link_to "Delete #{trail.name}", "/trails/#{trail.id}", method: :delete %></h3>
         </li>
     <%end%>
 </ol>

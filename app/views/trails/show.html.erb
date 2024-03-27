@@ -2,3 +2,4 @@
     <p><h3>Paved: <%= @trail.paved %></p></h3>
     <p><h3>Total length in miles: <%= @trail.total_length %></p></h3>
     <p><h3><%= link_to "Edit #{@trail.name}!", "/trails/#{@trail.id}/edit" %></p></h3>
+    <p><h3><%= link_to "Delete #{@trail.name}!", "/trails/#{@trail.id}", method: :delete %></p></h3>

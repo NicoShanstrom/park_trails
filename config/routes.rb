@@ -13,11 +13,13 @@ Rails.application.routes.draw do
   post "/asheville_parks", to: "asheville_parks#create"
   get "/asheville_parks/:id/edit", to: "asheville_parks#edit"
   patch "/asheville_parks/:id", to: "asheville_parks#update"
+  delete "/asheville_parks/:id", to: "asheville_parks#destroy"
 
-  get "/trails", to: "trails#index"
   get "/trails/:id/edit", to: "trails#edit"
   patch "/trails/:id", to: "trails#update"
   get "/trails/:id", to: "trails#show"
+  get "/trails", to: "trails#index"
+  delete "/trails/:id", to: "trails#destroy"
 
 
   get "/asheville_parks/:id/trails/new", to: "asheville_parks_trails#new"

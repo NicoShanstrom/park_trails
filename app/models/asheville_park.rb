@@ -1,5 +1,5 @@
 class AshevillePark < ApplicationRecord
-    has_many :trails
+    has_many :trails, dependent: :destroy
 
     def self.ordered_parks
         order(created_at: :desc)

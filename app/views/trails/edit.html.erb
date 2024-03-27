@@ -1,5 +1,5 @@
 <h1>Update Trail Information!</h1>
-<%= form_with url: "/trails/#{@trail.id}" do |form| %>
+<%= form_with url: "/trails/#{@trail.id}", method: :patch do |form| %>
   <%= form.label :name %>
   <%= form.text_field :name, value: @trail.name %>
   <%= form.label :paved %>
