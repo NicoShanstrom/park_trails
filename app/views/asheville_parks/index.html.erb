@@ -3,7 +3,10 @@
     <% @asheville_parks.each do |asheville_park| %>
         <li>
             <h3>Park name: <%= asheville_park.name %></h3>
+            <h3>Fee: <%= asheville_park.fee %></h3>
+            <h3>Pets allowed?: <%= asheville_park.pets_allowed %></h3>
             <h3>Time created: <%= asheville_park.created_at %></h3>
+            <h3><%=link_to "View #{asheville_park.name} trails!", "/asheville_parks/#{asheville_park.id}/trails"%></h3>
             <h3><%=link_to "Edit #{asheville_park.name}", "/asheville_parks/#{asheville_park.id}/edit"%></h3>
             <h3><%=link_to "Delete #{asheville_park.name}", "/asheville_parks/#{asheville_park.id}", data: { turbo_method: :delete } %></h3>
         </li>
