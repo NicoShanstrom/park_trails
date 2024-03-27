@@ -1,11 +1,10 @@
 class AshevilleParksTrailsController < ApplicationController
     def index
         @park = AshevillePark.find(params[:id])
-
         if params[:alphabetical] == 'true'
             @trails = @park.trails.alphabetical
-        elsif params[:min_length].present?
-            @trails = @park.trails.minimum_length(params[:min_length])
+        elsif params[:trail].present?
+            @trails = @park.trails.minimum_length(params[:trail][:min_length])
         else
             @trails = @park.trails.all
         end
@@ -29,6 +28,6 @@ class AshevilleParksTrailsController < ApplicationController
     private
 
     def trail_params
-        params.require(:trail).permit(:name, :paved, :total_length)
+        params.permit(:name, :paved, :total_length)
     end
 end

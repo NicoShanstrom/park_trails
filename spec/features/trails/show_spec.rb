@@ -21,11 +21,14 @@ RSpec.describe 'trails #show' do
             expect(page).to have_field("Paved", type: "checkbox")
             expect(page).to have_content("Total length in miles:")
             # When I click the button to submit the form "Update Child"
+            fill_in "Name", with: "Traily"
             click_on 'Update trail'
             # Then a `PATCH` request is sent to '/child_table_name/:id',
             # the child's data is updated,
             # and I am redirected to the Child Show page where I see the Child's updated information
             expect(current_path).to eq("/trails/#{bilt_1.id}")
+            expect(page).to have_content("Traily")
+            expect(page).to_not have_content("Biltmore Estate Path Loop")
         end
     end
 

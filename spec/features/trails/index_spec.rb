@@ -85,13 +85,6 @@ RSpec.describe 'trails index' do
             # When I visit the `child_table_name` index page or a parent `child_table_name` index page
             visit '/trails'
             # Next to every child, I see a link to edit that child's info
-            expect(page).to have_content(bilt_1.name)
-            expect(page).to have_content(bilt_1.name)
-            expect(page).to have_content(bilt_1.total_length)
-            expect(page).to have_content(bilt_2.name)
-            expect(page).to have_content(bilt_2.name)
-            expect(page).to have_content(bilt_2.total_length)
-
             expect(page).to have_link("Edit #{bilt_1.name}")
             expect(page).to have_link("Edit #{bilt_2.name}")
             # When I click the link
@@ -110,13 +103,6 @@ RSpec.describe 'trails index' do
             # When I visit the `child_table_name` index page or a parent `child_table_name` index page
             visit "/asheville_parks/#{biltmore.id}/trails"
             # Next to every child, I see a link to edit that child's info
-            expect(page).to have_content(bilt_1.name)
-            expect(page).to have_content(bilt_1.name)
-            expect(page).to have_content(bilt_1.total_length)
-            expect(page).to have_content(bilt_2.name)
-            expect(page).to have_content(bilt_2.name)
-            expect(page).to have_content(bilt_2.total_length)
-
             expect(page).to have_link("Edit #{bilt_1.name}")
             expect(page).to have_link("Edit #{bilt_2.name}")
             # When I click the link

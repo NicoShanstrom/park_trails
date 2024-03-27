@@ -8,11 +8,11 @@ Rails.application.routes.draw do
   # Defines the root path route ("/")
   # root "posts#index"
   get "/asheville_parks", to: "asheville_parks#index"
+  patch "/asheville_parks/:id", to: "asheville_parks#update", :as => :asheville_park 
   get "/asheville_parks/new", to: "asheville_parks#new"
   get "/asheville_parks/:id", to: "asheville_parks#show"
   post "/asheville_parks", to: "asheville_parks#create"
   get "/asheville_parks/:id/edit", to: "asheville_parks#edit"
-  patch "/asheville_parks/:id", to: "asheville_parks#update"
   delete "/asheville_parks/:id", to: "asheville_parks#destroy"
 
   get "/trails/:id/edit", to: "trails#edit"
